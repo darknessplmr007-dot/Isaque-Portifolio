@@ -1,0 +1,262 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    background: linear-gradient(135deg, #000 0%, #800000 100%);
+    min-height: 100vh;
+    padding: 0 20px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #ff0000;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ff0000;
+}
+
+/* Seções principais */
+h4 {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#typing::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+h3 a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+h3 a:hover {
+    color: #ff0000;
+}
+
+button {
+    background: linear-gradient(45deg, #ff0000, #800000);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(45deg, #800000, #400000);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background: #ff0000;
+    color: white; 
+    transform: translateY(-2px);
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Seções */
+#sobre, #projetos, #conhecimentos, #contato {
+    margin-bottom: 60px;
+    padding: 20px;
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#sobre:hover, #projetos:hover, #conhecimentos:hover, #contato:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.projeto {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #ff0000;
+    background-color: rgba(40, 40, 40, 0.8);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.projeto:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-left-color: #800000;
+    transform: scale(1.02);
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+li i {
+    color: #ff0000;
+    font-size: 1.5rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #000 0%, #200 100%);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 60px;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #ff0000, #800000);
+}
+
+.footer-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    margin: 20px 0;
+}
+
+.social-links a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #ff0000;
+}
+
+.social-links a i {
+    margin-right: 5px;
+}
+
+.back-to-top {
+    display: inline-block;
+    margin-top: 20px;
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-to-top:hover {
+    text-decoration: underline;
+}
+
+/* Animações adicionais */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, h2, h4 {
+    animation: fadeInUp 1s ease-out;
+}
