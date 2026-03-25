@@ -16,41 +16,45 @@ body {
 
 main {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.9);
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
-/* Header */
+/* ─── Header ─────────────────────────────────────────────── */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #333;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 4vw, 2rem);
     color: #ff0000;
     font-weight: 700;
 }
 
+/* ─── Nav ─────────────────────────────────────────────────── */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 nav a {
     text-decoration: none;
     color: #fff;
     font-weight: 500;
+    font-size: clamp(0.85rem, 2vw, 1rem);
     transition: color 0.3s;
 }
 
@@ -58,27 +62,53 @@ nav a:hover {
     color: #ff0000;
 }
 
-/* Seções principais */
+/* ─── Hamburger menu (mobile) ─────────────────────────────── */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 6px;
+    margin-bottom: 0;
+    box-shadow: none;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+    background: none;
+    transform: none;
+    box-shadow: none;
+}
+
+.menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ─── Tipografia escalável ────────────────────────────────── */
 h4 {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     color: #ccc;
     margin-bottom: 10px;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.6rem, 5vw, 2.5rem);
     margin-bottom: 20px;
     color: #fff;
 }
 
-#typing::after {
-    content: '|';
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+h3 {
+    font-size: clamp(1rem, 3vw, 1.3rem);
 }
 
 h3 a {
@@ -91,17 +121,31 @@ h3 a:hover {
     color: #ff0000;
 }
 
+/* ─── Efeito de cursor piscante ───────────────────────────── */
+#typing::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* ─── Botões ──────────────────────────────────────────────── */
 button {
     background: linear-gradient(45deg, #ff0000, #800000);
     color: white;
     border: none;
     padding: 12px 25px;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     cursor: pointer;
     border-radius: 25px;
     transition: all 0.3s ease;
     margin-bottom: 40px;
     box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+    width: auto;
+    max-width: 100%;
 }
 
 button:hover {
@@ -120,11 +164,12 @@ button:hover {
     border-radius: 25px;
     transition: all 0.3s ease;
     margin-top: 20px;
+    font-size: clamp(0.85rem, 2vw, 1rem);
 }
 
 .btn-secondary:hover {
     background: #ff0000;
-    color: white; 
+    color: white;
     transform: translateY(-2px);
 }
 
@@ -133,21 +178,25 @@ button a {
     text-decoration: none;
 }
 
-/* Seções */
+/* ─── Seções ──────────────────────────────────────────────── */
 #sobre, #projetos, #conhecimentos, #contato {
     margin-bottom: 60px;
-    padding: 20px;
+    padding: clamp(16px, 4vw, 30px);
     background-color: rgba(20, 20, 20, 0.8);
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#sobre:hover, #projetos:hover, #conhecimentos:hover, #contato:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+/* Desativa hover lift em touch */
+@media (hover: hover) {
+    #sobre:hover, #projetos:hover, #conhecimentos:hover, #contato:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
 }
 
+/* ─── Cards de projeto ────────────────────────────────────── */
 .projeto {
     margin-bottom: 20px;
     padding: 15px;
@@ -163,6 +212,7 @@ button a {
     transform: scale(1.02);
 }
 
+/* ─── Listas ──────────────────────────────────────────────── */
 ul {
     list-style: none;
     padding-left: 0;
@@ -170,29 +220,34 @@ ul {
 
 li {
     margin-bottom: 10px;
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 li i {
     color: #ff0000;
     font-size: 1.5rem;
+    flex-shrink: 0;
 }
 
+/* ─── Imagens ─────────────────────────────────────────────── */
 img {
     max-width: 100%;
     height: auto;
     margin-top: 20px;
+    border-radius: 8px;
+    display: block;
 }
 
-/* Footer */
+/* ─── Footer ──────────────────────────────────────────────── */
 footer {
     background: linear-gradient(135deg, #000 0%, #200 100%);
     color: white;
     text-align: center;
-    padding: 50px 20px;
+    padding: clamp(30px, 6vw, 50px) 20px;
     margin-top: 60px;
     border-radius: 10px 10px 0 0;
     position: relative;
@@ -209,20 +264,25 @@ footer::before {
 }
 
 .footer-content h2 {
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 4vw, 2rem);
     margin-bottom: 20px;
 }
 
 .social-links {
     margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
 }
 
 .social-links a {
-    margin: 0 15px;
+    margin: 0;
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
     transition: color 0.3s;
+    padding: 6px 10px;
 }
 
 .social-links a:hover {
@@ -245,7 +305,7 @@ footer::before {
     text-decoration: underline;
 }
 
-/* Animações adicionais */
+/* ─── Animações ───────────────────────────────────────────── */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -259,4 +319,119 @@ footer::before {
 
 h1, h2, h4 {
     animation: fadeInUp 1s ease-out;
+}
+
+/* ══════════════════════════════════════════════════════════
+   MEDIA QUERIES
+══════════════════════════════════════════════════════════ */
+
+/* ─── Tablet (≤ 768px) ────────────────────────────────────── */
+@media (max-width: 768px) {
+    body {
+        padding: 0 12px;
+    }
+
+    main {
+        padding: 16px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 0;
+    }
+
+    nav {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, padding 0.3s;
+    }
+
+    nav.open {
+        max-height: 400px;
+        padding-top: 12px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 12px;
+        padding-bottom: 12px;
+    }
+
+    nav a {
+        font-size: 1rem;
+        display: block;
+        padding: 6px 0;
+        border-bottom: 1px solid #222;
+    }
+
+    #sobre, #projetos, #conhecimentos, #contato {
+        margin-bottom: 32px;
+    }
+
+    button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .btn-secondary {
+        display: block;
+        text-align: center;
+    }
+
+    .projeto:hover {
+        transform: none;
+    }
+}
+
+/* ─── Mobile (≤ 480px) ────────────────────────────────────── */
+@media (max-width: 480px) {
+    body {
+        padding: 0 8px;
+    }
+
+    main {
+        padding: 12px;
+        border-radius: 6px;
+    }
+
+    li {
+        font-size: 0.95rem;
+    }
+
+    li i {
+        font-size: 1.2rem;
+    }
+
+    footer {
+        padding: 28px 12px;
+        margin-top: 32px;
+    }
+
+    .social-links a {
+        font-size: 0.95rem;
+    }
+}
+
+/* ─── Desktop grande (≥ 1400px) ──────────────────────────── */
+@media (min-width: 1400px) {
+    main {
+        padding: 40px;
+    }
+
+    #sobre, #projetos, #conhecimentos, #contato {
+        padding: 35px;
+    }
 }
