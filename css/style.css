@@ -319,8 +319,6 @@ footer::before {
 
 h1, h2, h4 {
     animation: fadeInUp 1s ease-out;
-<<<<<<< HEAD
-=======
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -436,5 +434,4 @@ h1, h2, h4 {
     #sobre, #projetos, #conhecimentos, #contato {
         padding: 35px;
     }
->>>>>>> 7fd7812797c00754869fbaf4458b05a37e3fc197
 }
